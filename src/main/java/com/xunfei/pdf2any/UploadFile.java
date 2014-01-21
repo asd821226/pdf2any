@@ -20,17 +20,6 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 @SuppressWarnings("rawtypes")
 public class UploadFile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * Default constructor.
-	 */
-	public UploadFile() {
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 	}

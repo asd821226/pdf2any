@@ -1,10 +1,9 @@
 package com.xunfei.pdf2any;
 
-	import java.io.File;
-
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
+import java.io.File;
 
 public class SessionListener implements HttpSessionListener {
 
@@ -33,9 +32,9 @@ public class SessionListener implements HttpSessionListener {
 	 */  
 	public boolean deleteFolder(String sPath) {  
 	   boolean flag = false;  
-	   File file = new File(sPath);  
+	   File file = new File(sPath);
 	    // 判断目录或文件是否存在  
-	    if (!file.exists()) {  // 不存在返回 false  
+	    if (!file.exists()) {  // 不存在返回 false
 	        return flag;  
 	    } else {  
 	        // 判断是否为文件  
