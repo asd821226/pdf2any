@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSessionListener;
 
 public class SessionListener implements HttpSessionListener {
 
-	/* Session创建事件 */
 	public void sessionCreated(HttpSessionEvent se) {
 		ServletContext ctx = se.getSession().getServletContext();
 		Integer numSessions = (Integer) ctx.getAttribute("numSessions");
