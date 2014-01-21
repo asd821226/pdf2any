@@ -20,7 +20,6 @@ public class SessionListener implements HttpSessionListener {
 		ctx.setAttribute("numSessions", numSessions);
 	}
 
-	/* Session失效事件 */
 	public void sessionDestroyed(HttpSessionEvent se) {
 		System.out.println("kill session: "+se.getSession().getId());
 		ServletContext ctx = se.getSession().getServletContext();
