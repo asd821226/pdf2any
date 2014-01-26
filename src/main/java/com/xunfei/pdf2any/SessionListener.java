@@ -20,7 +20,6 @@ public class SessionListener implements HttpSessionListener {
 	}
 
 	public void sessionDestroyed(HttpSessionEvent se) {
-		System.out.println("kill session: "+se.getSession().getId());
 		ServletContext ctx = se.getSession().getServletContext();
 		String realPath=ctx.getRealPath("")+"/uploads/"+se.getSession().getId();
 		deleteDirectory(realPath);
