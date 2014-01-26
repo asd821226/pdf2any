@@ -32,7 +32,6 @@ public class UploadFile extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession(true);
 		String sessionId=session.getId();
-		System.out.println(session.getId());
 
 		String realPath=this.getServletContext().getRealPath("")+"/uploads/"+sessionId;
 		new File(realPath).mkdirs();
@@ -43,6 +42,7 @@ public class UploadFile extends HttpServlet {
 		factory.setRepository(new File(realPath));
 
 		ServletFileUpload upload = new ServletFileUpload(factory);
+		upload.setHeaderEncoding("utf-8");
 		// maximum size before a FileUploadException will be thrown
 		upload.setSizeMax(1000000000);
 		String inFileName=null;
