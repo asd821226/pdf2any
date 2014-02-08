@@ -24,10 +24,6 @@ public class UploadFile extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession(true);
@@ -49,23 +45,16 @@ public class UploadFile extends HttpServlet {
 		List fileItems;
 		try {
 			fileItems = upload.parseRequest(request);
-			// assume we know there are two files. The first file is a small
-			// text file, the second is unknown and is written to a file on
-			// the server
 			Iterator i = fileItems.iterator();
 			i.next();
 			FileItem fi = (FileItem) i.next();
-			// filename on the client
 			String fileName = fi.getName();
-			// save comment and filename to database
-			// write the file
 			inFileName=realPath+"/"+fileName;
 			fi.write(new File(inFileName));
 			session.setAttribute("fileName", inFileName);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-//		request.getSession().invalidate(); 
 		
 	}
 

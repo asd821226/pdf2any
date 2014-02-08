@@ -7,11 +7,15 @@
 <script type="text/javascript">
 $(document).ready(function(){
   $("#bt").click(function(){
-  htmlobj=$.ajax({url:"/SplitPDF?inSplit="+$("#inSplit").value,async:false});
+	 // $.ajax({url:"/pdf2any/SplitPDF?inSplit="+$("#inSplit").val(),async:true});
+	  $.get("/pdf2any/SplitPDF?inSplit="+$("#inSplit").val(),download);
 //  $("#myDiv").html(htmlobj.responseText);
-console.log(htmlobj.responseText);
+//console.log(htmlobj.responseText);
   });
 });
+function download(data,status){
+	window.location.assign(data);
+}
 </script>
 <body>
 <h1>pdf分割</h1>
@@ -29,17 +33,14 @@ console.log(htmlobj.responseText);
 				'fileTypeDesc' : '请选PDF文件。',
 		        'fileTypeExts' : '*.*',
 				'uploader' : 'UploadFile', 
-				'onSelect' : function(file) {  
-			       // this.addPostParam("file_name",encodeURI(file.name));//改变文件名的编码
-			    },
-				 'onUploadComplete' : function(file) {
+				'onUploadComplete' : function(file) {
 					$("#bt").removeAttr("disabled");
 				}
 			});
 		});
 	</script>
 	<input type="text" id="inSplit"/>
-	<div>例：1-5;2-6;-18;7-</div>
+	<div>例：1-5;2-6</div>
 <button id="bt" type="button" disabled="disabled">提交</button>
 </body>
 </html>
