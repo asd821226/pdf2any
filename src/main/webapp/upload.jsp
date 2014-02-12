@@ -8,7 +8,7 @@
 $(document).ready(function(){
   $("#bt").click(function(){
 	 // $.ajax({url:"/pdf2any/SplitPDF?inSplit="+$("#inSplit").val(),async:true});
-	  $.get("/pdf2any/SplitPDF?inSplit="+$("#inSplit").val(),download);
+	  $.get(window.location+"SplitPDF?inSplit="+$("#inSplit").val(),download);
 //  $("#myDiv").html(htmlobj.responseText);
 //console.log(htmlobj.responseText);
   });
